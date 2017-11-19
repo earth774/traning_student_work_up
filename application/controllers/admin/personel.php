@@ -37,10 +37,13 @@ class personel extends CI_Controller {
                 $data = array(
                     'personel_fname_th' => $this->input->post('personel_fname_th'),
                     'personel_lname_th' => $this->input->post('personel_lname_th'),
+                    'title_id' => $this->input->post('title_id'),
+                    'personel_fname_en' => $this->input->post('personel_fname_en'),
+                    'mejor_id' => $this->input->post('mejor_id'),
                 );
 
-              echo $this->input->post('mejor_id');;
-                /*$insert = $this->sql_model->insert("personel_info",$data); 
+              // echo $this->input->post('mejor_id');;
+                $insert = $this->sql_model->insert("personel_info",$data); 
                     if($insert){
                      $data['url']="index.php/admin/personel/frm_add";
                      $data['txt']="บันทึกข้อมูลเรียบร้อยแล้ว";
@@ -48,7 +51,7 @@ class personel extends CI_Controller {
                      $this->template->load('template_admin', 'savefrm',$data);
                 }else{
                     show_404();
-                }*/
+                }
              }
         }
           public function update()
