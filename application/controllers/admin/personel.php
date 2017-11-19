@@ -16,7 +16,7 @@ class personel extends CI_Controller {
 
                 public function index()
 	{
-            $this->template->set('title', 'personel');
+            $this->template->set('title', 'ข้อมูลบุคลากร');
             $this->template->load('template_admin', 'admin/personel_view');  
 	}
         public function frm_add(){
@@ -58,6 +58,8 @@ class personel extends CI_Controller {
                     'personel_fname_th' => $this->input->post('personel_fname_th'),
                     'personel_lname_th' => $this->input->post('personel_lname_th'),
                     'personel_fname_en' => $this->input->post('personel_fname_en'),
+                    'title_id' => $this->input->post('title_id'),
+                    'mejor_id' => $this->input->post('mejor_id'),
 
                 );
 //                $where = array(
@@ -65,7 +67,7 @@ class personel extends CI_Controller {
 //                );
 
                 echo $this->input->post('mejor_id');
-              /* $personel = $this->sql_model->update("personel_info",'personel_id',$this->input->post('id'),$data); 
+               $personel = $this->sql_model->update("personel_info",'personel_id',$this->input->post('id'),$data); 
                     if($personel){
                     $data['url']="index.php/admin/personel";
                      $data['txt']="แก้ไขข้อมูลเรียบร้อยแล้ว";
@@ -73,7 +75,7 @@ class personel extends CI_Controller {
                      $this->template->load('template_admin', 'savefrm',$data);
                 }else{
                     show_404();
-                }*/
+                }
           
              }
         }

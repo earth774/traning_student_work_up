@@ -74,7 +74,7 @@ Inner Join personel_title ON personel_title.title_id = personel_info.title_id
                           <tr>
                             <th scope="row"><?PHP echo $i++; ?></th>
                             <td><?PHP echo $value->title_nameth.'   '.$value->personel_fname_th;?></td>
-                            <td>Otto</td>
+                            <td><?=$value->personel_lname_th?></td>
                             <td>@mdo</td>
                             <td><a href="<?PHP echo base_url('index.php/admin/personel/frm_edit/'.$value->personel_id); ?>" class="btn btn-success"><i class="icon-form"></i> edit</a> <a href="<?PHP echo base_url('index.php/admin/personel/delete/'.$value->personel_id); ?>" class="btn btn-danger"><i class="icon-form"></i> Del</a></td>
                           </tr>

@@ -42,91 +42,59 @@
                     </div>
                     <div class="card-body">
 
-                   
-
-              
-
-
-                     
-                      <form method="post" action="<?PHP echo base_url('index.php/admin/personel/save'); ?>">
-
-
-                        <label class="custom-file">
-        <input type="file" id="file" class="custom-file-input">
-        <span class="custom-file-control"></span>
-      </label>
-
-                      
-
-                                <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Password</label>
-                          <div class="col-sm-9">
-                            <input type="password" name="password" class="form-control">
-                          </div>
-                        </div>
-                        <div class="line"></div>
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Placeholder</label>
-                          <div class="col-sm-9">
-                            <input type="text" placeholder="placeholder" class="form-control">
-                          </div>
-                        </div>
-
+                <form method="post" method="post" action="<?PHP echo base_url('index.php/admin/personel/save'); ?>">
                       <div class="form-group">
+                          <label class="form-control-label">คำนำหน้าชื่อ</label>
+                          <select class="form-control" name="title_id">
+                          <?PHP
+                            $title = $this->sql_model->select("SELECT * from personel_title");
+                             foreach ($title as $value) {
+                           ?>
+                              <option value="<?PHP echo $value->title_id; ?>"><?PHP echo $value->title_nameth;  ?></option>
+                          <?PHP } ?>
+
+                               
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="form-control-label">ชื่อ</label>
+                          <input type="text" class="form-control" name="personel_fname_th">
+                        </div>
+                        <div class="form-group">       
+                          <label class="form-control-label">นามสกุล</label>
+                          <input type="text"  name="personel_lname_th" class="form-control">
+                        </div>
+                         <div class="form-group">       
+                          <label class="form-control-label">ชื่อภาษาอังกฤษ</label>
+                          <input type="text"  name="personel_fname_en" class="form-control">
+                        </div>
+
+                          <div class="form-group">
                           <label class="form-control-label">สาขา</label>
-                          <select class="form-control" id="part">
+                          <select class="form-control" name="mejor_id">
                           <?PHP 
-                            $personel = $this->sql_model->select("SELECT * FROM part");
+                            $mejor = $this->sql_model->select("SELECT * FROM mejor");
                            
-                            if($personel){
-                                foreach ($personel as $value) { 
+                            if($mejor){
+                                foreach ($mejor as $value) { 
                           ?>
-                              <option value="<?PHP echo $value->part_id;?>"><?PHP echo $value->part_name; ?></option>
+     <option value="<?PHP echo $value->mejor_id;?>"><?PHP echo $value->major_name; ?></option>
                         
 
                         <?PHP } } ?>
                       
                             </select>
-
-                             <select name="mejor_id" id="mejor_id" class="form-control">  
-                             <option value="">Select</option>  
-                          </select>   
-                          
+                               
+                         
                         </div>
 
-                        <div class="row">
-  <div class="col-xs-6">.col-xs-6</div>
-  <div class="col-xs-6">.col-xs-6</div>
-</div>
-
-                        <div class="rows">
-                       <div class="col-sm-4">
-
-                        <div class="form-group">
-                          <label class="form-control-label">ชื่อ</label>
-                          <input type="text" placeholder="fname" class="form-control" name="personel_fname_th">
-                          </div>
-                      
-                          </div>
-                 
-                           <div class="col-sm-4">
 
 
-
-                        
-                        <div class="form-group">       
-                          <label class="form-control-label">นามสกุล</label>
-                          <input type="text" placeholder="lname" name="personel_lname_th" class="form-control">
-                        </div>
-                      </div>
-                      </div>
-
-
-                        <div class="form-group">       
-                          <input type="submit" value="Save" class="btn btn-primary">
+                        <div class="form-group">  
+                            <input type="submit" value="Save" class="btn btn-primary">
                         </div>
                       </form>
-
 
 
 
